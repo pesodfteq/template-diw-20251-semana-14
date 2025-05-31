@@ -1,23 +1,36 @@
+# 🎬 Visualização Dinâmica de Filmes
 
-# Trabalho Prático - Semana 14
+**Autor:** Pedro Henrique Dias Pereira  
+**Turma:** G1/T3 - 1ºP/80H - 2025/1  
+**Disciplina:** Desenvolvimento Web  
 
-A partir dos dados cadastrados na etapa anterior, vamos trabalhar formas de apresentação que representem de forma clara e interativa as informações do seu projeto. Você poderá usar gráficos (barra, linha, pizza), mapas, calendários ou outras formas de visualização. Seu desafio é entregar uma página Web que organize, processe e exiba os dados de forma compreensível e esteticamente agradável.
+---
 
-Com base nos tipos de projetos escohidos, você deve propor **visualizações que estimulem a interpretação, agrupamento e exibição criativa dos dados**, trabalhando tanto a lógica quanto o design da aplicação.
+## ✨ Funcionalidade
 
-Sugerimos o uso das seguintes ferramentas acessíveis: [FullCalendar](https://fullcalendar.io/), [Chart.js](https://www.chartjs.org/), [Mapbox](https://docs.mapbox.com/api/), para citar algumas.
+Este projeto implementa a apresentação dinâmica dos dados de filmes cadastrados anteriormente, utilizando a biblioteca [Chart.js](https://www.chartjs.org/).
 
-## Informações do trabalho
+A página exibe dois gráficos interativos:
 
-- Nome:
-- Matricula:
-- Proposta de projeto escolhida:
-- Breve descrição sobre seu projeto:
+- 📊 **Gráfico de Pizza**: Mostra a **quantidade de filmes por gênero**.
+- 📈 **Gráfico de Barras**: Mostra a **média das avaliações** dos filmes por gênero (escala de 1 a 5).
 
-**Print da tela com a implementação**
+Todos os dados são obtidos via `JSON Server`, com base no CRUD de filmes previamente desenvolvido.
 
-<< Coloque aqui uma breve explicação da implementação feita nessa etapa>>
+---
 
-<<  COLOQUE A IMAGEM TELA 1 AQUI >>
+## 🛠️ Tecnologias Utilizadas
 
-<<  COLOQUE A IMAGEM TELA 2 AQUI >>
+- [Chart.js](https://www.chartjs.org/)
+- HTML5 / CSS3
+- JavaScript (ES6+)
+- JSON Server
+- Git / GitHub
+
+---
+
+## ▶️ Como Executar o Projeto
+
+1. Instale o JSON Server (caso ainda não tenha):
+   ```bash
+   npm install -g json-server

@@ -1,18 +1,92 @@
 {
-  "usuarios": [
+  "filmes": [
     {
-      "id": "187cb7e5-e097-4224-8bc7-b610c855e2b1",
-      "login": "admin",
-      "senha": "123",
-      "nome": "Administrador do Sistema",
-      "email": "admin@abc.com"
+      "id": 1,
+      "titulo": "Batman: O Cavaleiro das Trevas",
+      "imagem": "assets/img/batman.jpg",
+      "descricao": "Batman enfrenta o Coringa em uma luta épica pelo destino de Gotham.",
+      "destaque": true,
+      "ano": 2008,
+      "genero": "Ação",
+      "diretor": "Christopher Nolan",
+      "avaliacao": 5
     },
     {
-      "id": "ec37c83d-4b7f-458d-9e10-3fda7d37cd3e",
-      "login": "user",
-      "senha": "123",
-      "nome": "Usuario Comum",
-      "email": "user@abc.com"
+      "id": 2,
+      "titulo": "Branca de Neve",
+      "imagem": "assets/img/branca de neve.jpg",
+      "descricao": "Uma princesa perseguida encontra abrigo com sete anões mágicos.",
+      "destaque": true,
+      "ano": 1937,
+      "genero": "Animação",
+      "diretor": "David Hand",
+      "avaliacao": 4
+    },
+    {
+      "id": 3,
+      "titulo": "A Fantástica Fábrica de Chocolate",
+      "imagem": "assets/img/chocolatefactory.png",
+      "descricao": "Charlie visita a misteriosa fábrica de Willy Wonka.",
+      "destaque": false,
+      "ano": 2005,
+      "genero": "Fantasia",
+      "diretor": "Tim Burton",
+      "avaliacao": 4
+    },
+    {
+      "id": 4,
+      "titulo": "O Rei dos Reis",
+      "imagem": "assets/img/oreidosreis.jpg",
+      "descricao": "A história dramática da jornada de fé de Jesus Cristo.",
+      "destaque": false,
+      "ano": 1961,
+      "genero": "Drama",
+      "diretor": "Nicholas Ray",
+      "avaliacao": 4
+    },
+    {
+      "id": 5,
+      "titulo": "As Crônicas de Nárnia",
+      "imagem": "assets/img/narnia.png",
+      "descricao": "Quatro irmãos descobrem um mundo mágico por trás de um guarda-roupa.",
+      "destaque": true,
+      "ano": 2005,
+      "genero": "Fantasia",
+      "diretor": "Andrew Adamson",
+      "avaliacao": 4
+    },
+    {
+      "id": 6,
+      "titulo": "Minecraft: O Filme",
+      "imagem": "assets/img/minecraft.jpg",
+      "descricao": "Um mundo de blocos e aventuras com uma missão épica.",
+      "destaque": false,
+      "ano": 2025,
+      "genero": "Aventura",
+      "diretor": "Peter Sollett",
+      "avaliacao": 3
+    },
+    {
+      "id": 7,
+      "titulo": "Furiosa",
+      "imagem": "assets/img/furiosa.png",
+      "descricao": "Uma guerreira em busca de liberdade no universo Mad Max.",
+      "destaque": true,
+      "ano": 2024,
+      "genero": "Ação",
+      "diretor": "George Miller",
+      "avaliacao": 5
+    },
+    {
+      "id": 8,
+      "titulo": "Mufasa: O Rei Leão",
+      "imagem": "assets/img/mufasa.jpg",
+      "descricao": "A história de origem de um dos maiores reis da savana.",
+      "destaque": false,
+      "ano": 2024,
+      "genero": "Animação",
+      "diretor": "Barry Jenkins",
+      "avaliacao": 4
     }
   ]
 }

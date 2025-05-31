@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gráficos de Filmes</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .chart-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 40px auto;
+    }
+    a.button {
+      display: inline-block;
+      margin-bottom: 20px;
+      text-decoration: none;
+      background: #007BFF;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+    a.button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="button">🔙 Voltar ao Catálogo</a>
+  <h1>Visualização Dinâmica dos Filmes</h1>
+
+  <div class="chart-container">
+    <h2>Distribuição de Filmes por Gênero</h2>
+    <canvas id="genreChart"></canvas>
+  </div>
+
+  <div class="chart-container">
+    <h2>Avaliação Média por Ano</h2>
+    <canvas id="ratingChart"></canvas>
+  </div>
+
+<script>
+  async function fetchFilmes() {
+    const response = await fetch('http://localhost:3000/filmes');
+    const filmes = await response.json();
+    return filmes;
+  }
+
+  function agruparPorGenero(filmes) {
+    const generoCount = {};
+    filmes.forEach(filme => {
+      const genero = filme.genero || 'Desconhecido';
+      generoCount[genero] = (generoCount[genero] || 0) + 1;
+    });
+    return generoCount;
+  }
+
+  function calcularMediaAvaliacaoPorAno(filmes) {
+    const avaliacoesPorAno = {};
+    const quantidadePorAno = {};
+
+    filmes.forEach(filme => {
+      const ano = filme.ano || 'Desconhecido';
+      avaliacoesPorAno[ano] = (avaliacoesPorAno[ano] || 0) + filme.avaliacao;
+      quantidadePorAno[ano] = (quantidadePorAno[ano] || 0) + 1;
+    });
+
+    const mediaPorAno = {};
+    for (const ano in avaliacoesPorAno) {
+      mediaPorAno[ano] = (avaliacoesPorAno[ano] / quantidadePorAno[ano]).toFixed(2);
+    }
+
+    // Ordena por ano crescente
+    return Object.fromEntries(Object.entries(mediaPorAno).sort((a,b) => a[0] - b[0]));
+  }
+
+  function criarGraficoPizza(ctx, labels, data) {
+    return new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Quantidade de Filmes',
+          data: data,
+          backgroundColor: [
+            '#FF6384', '#36A2EB', '#FFCE56', '#8AFF33', '#33FFD5', '#D633FF', '#FF5733'
+          ]
+        }]
+      },
+      options: {
+        responsive: true,
+      }
+    });
+  }
+
+  function criarGraficoBarras(ctx, labels, data) {
+    return new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Avaliação Média',
+          data: data,
+          backgroundColor: '#36A2EB'
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 5
+          }
+        }
+      }
+    });
+  }
+
+  async function init() {
+    const filmes = await fetchFilmes();
+
+    // Gráfico pizza - gêneros
+    const generoCount = agruparPorGenero(filmes);
+    const generoLabels = Object.keys(generoCount);
+    const generoData = Object.values(generoCount);
+
+    const ctxGenero = document.getElementById('genreChart').getContext('2d');
+    criarGraficoPizza(ctxGenero, generoLabels, generoData);
+
+    // Gráfico barras - avaliação média por ano
+    const mediaAvaliacaoAno = calcularMediaAvaliacaoPorAno(filmes);
+    const anoLabels = Object.keys(mediaAvaliacaoAno);
+    const mediaData = Object.values(mediaAvaliacaoAno);
+
+    const ctxRating = document.getElementById('ratingChart').getContext('2d');
+    criarGraficoBarras(ctxRating, anoLabels, mediaData);
+  }
+
+  init();
+</script>
+</body>
+</html>

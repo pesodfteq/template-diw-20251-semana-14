@@ -1,0 +1,137 @@
+body { font-family: 'Roboto', sans-serif; } .logo { height: 40px; }/* estilo.css */
+
+/* Corpo e fonte */
+body {
+  background-color: #121212;
+  color: #f0f0f0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Cabeçalho */
+header {
+  border-bottom: 2px solid #4a90e2;
+}
+
+header h1 {
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* Navegação */
+.nav-link:hover {
+  color: #4a90e2 !important;
+  text-decoration: underline;
+}
+
+/* Carousel */
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 1rem;
+}
+
+.carousel-item img {
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Cards de filmes */
+.card {
+  background-color: #1e1e1e;
+  border: none;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(74, 144, 226, 0.6);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-body {
+  color: #ddd;
+}
+
+/* Botões */
+.btn-primary {
+  background-color: #4a90e2;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #357ABD;
+}
+
+/* Formulário de cadastro */
+form label {
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+form input[type="text"],
+form input[type="number"],
+form textarea {
+  background-color: #292929;
+  border: 1px solid #444;
+  color: #eee;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form textarea:focus {
+  background-color: #333;
+  border-color: #4a90e2;
+  color: #fff;
+  outline: none;
+}
+
+/* Checkbox */
+.form-check-label {
+  color: #cbd5e1;
+}
+
+/* Tabela de filmes */
+table {
+  background-color: #1e1e1e;
+  color: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #292929;
+}
+
+table th,
+table td {
+  vertical-align: middle;
+}
+
+table tbody tr:hover {
+  background-color: #333;
+}
+
+/* Rodapé */
+footer {
+  background-color: #121212;
+  border-top: 2px solid #4a90e2;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Responsividade para imagens */
+@media (max-width: 576px) {
+  .carousel-item img,
+  .card-img-top {
+    height: 150px;
+  }
+}
